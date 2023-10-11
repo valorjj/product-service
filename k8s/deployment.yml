@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: product-service-app
-        image: valorjj/product-service:0.0.1
+        image: IMAGE_URL/product-service
         imagePullPolicy: Always
         # resources:
         #   limits:
