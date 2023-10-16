@@ -75,4 +75,7 @@ jib {
 		image = System.getProperty('REPO_URL') + '/product-service'
 		tags = ['0.0.1', 'latest']
 	}
+	container {
+		jvmFlags=["-Dspring.profiles.active=dev"]
+	}
 }

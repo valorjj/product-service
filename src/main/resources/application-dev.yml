@@ -1,0 +1,22 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: PRODUCT-SERVICE
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/product_db
+    username: root
+    password: 1qaz!QAZ2wsx@WSX
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        "[format_sql]": true
+        "[use_sql_comments]": true
+        "[show_sql]": true
