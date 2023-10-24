@@ -35,11 +35,12 @@ public class ProductServiceImpl implements ProductService {
         Product productPS = productRepository.findById(productId).orElseThrow(
             () -> new ProductServiceCustomException(productId + "에 해당하는 제품이 존재하지 않습니다.", "PRODUCT_NOT_FOUND")
         );
+
         log.info("[i] 제품아이디 [{}] 를 찾았습니다.", productId);
 
-        log.info("[i] 엔티티를 레코드로 변환한 결과는 다음과 같습니다. [{}]", ProductResponse.of(productPS));
+        log.info("[i] 엔티티를 레코드로 변환한 결과는 다음과 같습니다. [{}]", ProductResponse.fromEntityToRecord(productPS));
 
-        return ProductResponse.of(productPS);
+        return ProductResponse.fromEntityToRecord(productPS);
     }
 
     @Override

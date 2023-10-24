@@ -16,7 +16,7 @@ public record ProductResponse(
 ) {
 
     // entity 를 record 로 변환하는 메서드
-    public static ProductResponse of(Product product) {
+    public static ProductResponse fromEntityToRecord(Product product) {
         return ProductResponse.builder()
             .productId(product.getId())
             .productName(product.getName())
