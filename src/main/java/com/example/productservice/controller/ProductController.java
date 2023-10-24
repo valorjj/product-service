@@ -28,7 +28,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(productId);
     }
 
-    @PreAuthorize("hasAuthority('Admin') || hasAuthority('Customer')")
+    @PreAuthorize("hasAuthority('Admin') || hasAuthority('Customer') || hasAuthority('SCOPE_internal')")
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable("id") Long productId) {
         ProductResponse productResponse = productService.getProductById(productId);
@@ -36,8 +36,6 @@ public class ProductController {
         return ResponseEntity.ok(productResponse);
     }
 
-
-    @PreAuthorize("hasAuthority('Admin') || hasAuthority('Customer')")
     @PutMapping("/reduceQuantity/{id}")
     public ResponseEntity<Integer> reduceQuantity(
         @PathVariable("id") Long productId,
@@ -46,7 +44,6 @@ public class ProductController {
         productService.reduceQuantity(productId, quantity);
         return ResponseEntity.ok(1);
     }
-
 
 
 }
