@@ -20,7 +20,6 @@ public class ProductController {
     @Qualifier("productServiceImpl")
     private final ProductService productService;
 
-
     @PreAuthorize("hasAuthority('Admin')")
     @PostMapping
     public ResponseEntity<Long> addProduct(@RequestBody ProductRequest productRequest) {
