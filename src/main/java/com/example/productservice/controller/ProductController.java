@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class ProductController {
 
-    @Qualifier("productServiceImpl")
+    // @Qualifier("productServiceImpl")
     private final ProductService productService;
 
     @PreAuthorize("hasAuthority('Admin')")

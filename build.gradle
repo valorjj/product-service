@@ -68,7 +68,7 @@ jar {
 
 jib {
 	from {
-		image = "eclipse-temurin:17-jdk"
+		image = "openjdk:17"
 	}
 	to {
 		image = System.getProperty('REPO_URL') + '/product-service'
